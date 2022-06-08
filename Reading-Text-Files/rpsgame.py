@@ -29,7 +29,7 @@ while True:
     user = P
     break
   else:
-    print("------- Invalid option. Try again!  ------------")
+    print("------- Invalid option. Please try again!  ------------")
   user_choice = input("Choose R - Rock, S - Scissors, P - Paper \n")
   user = user_choice.upper()
 
