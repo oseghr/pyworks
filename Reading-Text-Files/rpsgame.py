@@ -3,51 +3,51 @@
 import random
 
 # Rules
-
 # Rock wins scissors
 # Scissors wins paper
 # Paper wins rock
 
-# # test_seed = int(input("Create a seed: "))
-# # random.seed(test_seed)
-# # print(random.randint(1, 20))
-
-
-rock = 'R'
-
-paper = 'P'
-
-scissors = 'S'
+R = 'Rock'
+P = 'Paper'
+S = 'Scissors'
 
 #List of options
-game_images = ["R", "S", "P"]
+game_options = [R, S, P]
 
 #Get user choice
-user_choice = int(input("Choose 0 rock, 1 scissors, 2 paper \n"))
-computer = random.randint(0, 2)
+user_choice = input("Choose R - Rock, S - Scissors, P - Paper \n")
+user = user_choice.upper()
+
+while True:
+  if user == "R":
+    user = R
+    break
+  elif user == "S":
+    user = S
+    break
+  elif user == "P":
+    user = P
+    break
+  else:
+    print("------- Invalid option. Try again!  ------------")
+  user_choice = input("Choose R - Rock, S - Scissors, P - Paper \n")
+  user = user_choice.upper()
+
+#Get computer choice
+computer = random.choice(game_options)
 
 try:
-
-  #displays the users choice
-  print(f"User choice is: {user_choice}")
-  print(game_images[user_choice])
-
-  #displays the computer's choice
-  print(f"Computer choice is: {computer}")
-  print(game_images[computer])
-
+  
+  print(f"Player ({user}) : CPU ({computer})")
   #conditions for comparing user and computer choice.
-  if user_choice == 0 and computer == 1:
+  if user == "Rock" and computer == "Scissors":
     print("------- You Win!  ------------")
-  elif user_choice == 1 and computer == 2:
+  elif user == "Scissors" and computer == "Paper":
     print("------- You Win!  ------------")
-  elif user_choice == 2 and computer == 0:
+  elif user == "Paper" and computer == "Rock":
     print("------- You Win!  ------------")
-  elif user_choice == computer:
+  elif user == computer:
     print("------- It's a Draw!  ------------")
   else:
     print("------- You Lose ------------")
-
-#displays error for invalid entries
-except IndexError:
-  print("------- Invalid option. Try again!  ------------")
+  
